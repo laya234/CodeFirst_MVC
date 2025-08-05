@@ -1,0 +1,53 @@
+﻿@model IEnumerable<excf.Models.Pet>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.pname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pcategory)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.page)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.pbreed)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pcategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.page)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pbreed)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.pid">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.pid">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.pid">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
